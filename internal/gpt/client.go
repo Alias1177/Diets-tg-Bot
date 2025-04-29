@@ -2,7 +2,6 @@
 package gpt
 
 import (
-	"awesomeProject/Diets_Bot/internal/models"
 	"context"
 	"fmt"
 )

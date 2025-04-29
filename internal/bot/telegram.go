@@ -2,11 +2,6 @@
 package bot
 
 import (
-	"awesomeProject/Diets-Bot/pkg/logger"
-	"awesomeProject/Diets_Bot/internal/db"
-	"awesomeProject/Diets_Bot/internal/gpt"
-	"awesomeProject/Diets_Bot/internal/models"
-	"awesomeProject/Diets_Bot/internal/payment"
 	"context"
 	"fmt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"

@@ -8,21 +8,7 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      - DB_HOST=postgres
-      - DB_PORT=5432
-      - DB_USER=postgres
-      - DB_PASSWORD=postgres
-      - DB_NAME=fitness_bot
-      - DB_SSL_MODE=disable
-      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
-      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
-      - STRIPE_PUBLIC_KEY=${STRIPE_PUBLIC_KEY}
-      - STRIPE_WEBHOOK_KEY=${STRIPE_WEBHOOK_KEY}
-      - STRIPE_PRICE_ID=${STRIPE_PRICE_ID}
-      - STRIPE_PRODUCT_ID=${STRIPE_PRODUCT_ID}
-      - GPT_API_KEY=${GPT_API_KEY}
-      - GPT_MODEL=gpt-4
-      - SERVER_PORT=8080
+     - .env
     volumes:
       - ./config:/app/config
     networks:

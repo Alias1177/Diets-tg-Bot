@@ -2,8 +2,6 @@
 package server
 
 import (
-	"awesomeProject/Diets-Bot/pkg/logger"
-	"awesomeProject/Diets_Bot/internal/bot"
 	"context"
 	"net/http"
 	"time"

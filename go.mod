@@ -6,7 +6,6 @@ require (
 	github.com/go-telegram-bot-api/telegram-bot-api/v5 v5.5.1
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/joho/godotenv v1.5.1
-	github.com/sashabaranov/go-openai v1.38.2
 	github.com/spf13/viper v1.20.1
 	github.com/stripe/stripe-go/v72 v72.122.0
 	go.uber.org/zap v1.27.0
