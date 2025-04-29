@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: diet-bot
+    depends_on:
+      - postgres
+    environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASSWORD=${DB_PASSWORD:-postgres}
+      - DB_NAME=${DB_NAME:-fitness_bot}
+      - DB_SSL_MODE=disable
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
+      - STRIPE_PUBLIC_KEY=${STRIPE_PUBLIC_KEY}
+      - STRIPE_WEBHOOK_KEY=${STRIPE_WEBHOOK_KEY}
+      - STRIPE_PRODUCT_ID=${STRIPE_PRODUCT_ID}
+      - STRIPE_PRICE_ID=${STRIPE_PRICE_ID}
+      - GPT_API_KEY=${GPT_API_KEY}
+      - GPT_MODEL=${GPT_MODEL:-gpt-4}
+      - SERVER_PORT=8080
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+    volumes:
+      - ./.env:/app/.env
+    networks:
+      - bot-network
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: diet-bot-postgres
+    environment:
+      - POSTGRES_USER=${DB_USER:-postgres}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-postgres}
+      - POSTGRES_DB=${DB_NAME:-fitness_bot}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+    networks:
+      - bot-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-data:
+
+networks:
+  bot-network:
+    driver: bridge
