@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"time"
 
+	"diet-bot/internal/models"
+
 	"github.com/jackc/pgx/v4/pgxpool"
 )
 

@@ -1,8 +1,8 @@
-// internal/payment/stripe.go
 package payment
 
 import (
 	"fmt"
+	"github.com/stripe/stripe-go/v72"
 	"strconv"
 
 	"github.com/stripe/stripe-go/v72/checkout/session"

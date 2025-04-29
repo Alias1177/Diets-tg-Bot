@@ -2,14 +2,14 @@
 package main
 
 import (
-	"awesomeProject/Diets-Bot/internal/bot"
-	"awesomeProject/Diets-Bot/internal/config"
-	"awesomeProject/Diets-Bot/internal/db"
-	"awesomeProject/Diets-Bot/internal/gpt"
-	"awesomeProject/Diets-Bot/internal/payment"
-	"awesomeProject/Diets-Bot/internal/server"
-	"awesomeProject/Diets-Bot/pkg/logger"
 	"context"
+	"diet-bot/config"
+	"diet-bot/internal/bot"
+	"diet-bot/internal/db"
+	"diet-bot/internal/gpt"
+	"diet-bot/internal/payment"
+	"diet-bot/internal/server"
+	"diet-bot/pkg/logger"
 	"errors"
 	"net/http"
 	"os"
@@ -19,7 +19,6 @@ import (
 )
 
 func main() {
-	// Initialize logger
 	l := logger.New()
 	l.Info("Starting Fitness Diet Bot...")
 

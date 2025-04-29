@@ -1,8 +1,9 @@
-// internal/server/server.go
 package server
 
 import (
 	"context"
+	"diet-bot/internal/bot"
+	"diet-bot/pkg/logger"
 	"net/http"
 	"time"
 )

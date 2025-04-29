@@ -1,8 +1,8 @@
-// internal/bot/handlers.go
 package bot
 
 import (
 	"encoding/json"
+	"github.com/stripe/stripe-go/v72"
 	"io"
 	"net/http"
 	"strconv"

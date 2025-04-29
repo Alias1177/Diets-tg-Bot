@@ -1,8 +1,12 @@
-// internal/bot/telegram.go
 package bot
 
 import (
 	"context"
+	"diet-bot/internal/db"
+	"diet-bot/internal/gpt"
+	"diet-bot/internal/models"
+	"diet-bot/internal/payment"
+	"diet-bot/pkg/logger"
 	"fmt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 	"strconv"
